@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="sale_subscription.menu_purchase_subscription_root" 
+              name="Compra assinaturas" 
+              sequence="9" 
+              web_icon="sale_subscription,static/description/icon.png" 
+              groups="jsx_extends_sale_subscription.group_show_sale_subscription"
+    />
+
+</odoo>

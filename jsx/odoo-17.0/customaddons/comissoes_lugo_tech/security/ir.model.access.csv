@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+comissoes_lugo_tech.access_comissoes,access_comissoes,comissoes_lugo_tech.model_comissoes,base.group_user,1,1,1,1
+comissoes_lugo_tech.access_comissoes_estagios,access_comissoes_estagios,comissoes_lugo_tech.model_comissoes_estagios,base.group_user,1,1,1,1

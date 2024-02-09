@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- CONFIGURAÇÃO -->
+    <record id="jsx_integration_out_system_configuration_tree" model="ir.ui.view">
+        <field name="name">jsx.integration.out.system.configuration.tree</field>
+        <field name="model">jsx.integration.configuration</field>
+        <field name="arch" type="xml">
+            <tree string="Configuração Integração" sample="1" multi_edit="1">
+                <field name="database" required="1"/>
+                <field name="server" required="1"/>
+                <field name="door" required="1"/>
+                <field name="user" required="1"/>
+                <field name="password" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="jsx_integration_out_system_configuration_form" model="ir.ui.view">
+        <field name="name">jsx.integration.out.system.configuration.form</field>
+        <field name="model">jsx.integration.configuration</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group string="Porta e Servidor">
+                        <field name="server" required="1"/>
+                        <field name="door" required="1"/>
+                    </group>
+                    <group string="Dados do Banco">
+                        <field name="database" required="1"/>
+                        <field name="user" required="1"/>
+                        <field name="password" required="1"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="jsx_integration_configuration_action">
+        <field name="name">Configuração</field>
+        <field name="res_model">jsx.integration.configuration</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="jsx_integration_out_system_configuration_tree"/>
+    </record>
+
+
+    <!-- LOGS -->
+    <record id="jsx_integration_out_system_logs_tree" model="ir.ui.view">
+        <field name="name">jsx.integration.out.system.logs.tree</field>
+        <field name="model">jsx.integration.logs</field>
+        <field name="arch" type="xml">
+            <tree string="Logs Integração" sample="1" multi_edit="1" create="0" delete="0">
+                <field name="body" />
+                <field name="code" />
+                <field name="message" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="jsx_integration_out_system_logs_form" model="ir.ui.view">
+        <field name="name">jsx.integration.out.system.logs.form</field>
+        <field name="model">jsx.integration.logs</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <group>
+                    <group string="Logs">
+                        <field name="body"/>
+                        <field name="code"/>
+                        <field name="message"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="jsx_integration_logs_action">
+        <field name="name">Logs de Integração</field>
+        <field name="res_model">jsx.integration.logs</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="jsx_integration_out_system_logs_tree"/>
+    </record>
+   
+
+</odoo>

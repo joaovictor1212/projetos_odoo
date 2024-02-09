@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+
+   
+    <menuitem
+        id="jsx_integration_menu_root"
+        name="Integração"
+        web_icon="jsx_integration_out_system,static/description/icon.png"
+        sequence="30"/>
+
+    <menuitem
+        id="jsx_integration_logs"
+        name="Logs de Integração"
+        parent="jsx_integration_menu_root"
+        action="jsx_integration_out_system.jsx_integration_logs_action"
+        sequence="1"/>
+
+
+    <menuitem
+        id="jsx_integration_configuration"
+        name="Configuração"
+        parent="jsx_integration_menu_root"
+        action="jsx_integration_out_system.jsx_integration_configuration_action"
+        sequence="2"/>
+
+</odoo>

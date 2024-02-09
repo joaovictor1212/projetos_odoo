@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+jsx_integration_out_system.access_jsx_integration_configuration,access_jsx_integration_configuration,jsx_integration_out_system.model_jsx_integration_configuration,base.group_user,1,1,1,1
+jsx_integration_out_system.access_jsx_integration_logs,access_jsx_integration_logs,jsx_integration_out_system.model_jsx_integration_logs,base.group_user,1,1,1,1

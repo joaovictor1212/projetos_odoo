@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+
+   
+    <menuitem
+        id="commissoes_lugo_tech_menu_root"
+        name="Autos Lugo.tech"
+        web_icon="comissoes_lugo_tech,static/description/icon.png"
+        sequence="50"/>
+
+    <menuitem
+        id="comissoes_lugo_tech"
+        name="Comissões"
+        parent="commissoes_lugo_tech_menu_root"
+        action="comissoes_lugo_tech.comissoes_action"
+        sequence="1"/>
+
+
+</odoo>

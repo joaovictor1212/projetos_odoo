@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+
+    <!-- ESTÁGIOS -->
+    <record id="estagios_tree_view" model="ir.ui.view">
+        <field name="name">estagios.tree.view</field>
+        <field name="model"></field>
+        <field name="arch" type="xml">
+            <tree string="Comissões" sample="1" multi_edit="1">
+                <field name="ciclo" />
+                <field name="nome_venda" />
+                <field name="comissao_lugo_tech" />
+                <field name="comissao_interno" />
+                <field name="comissao_parceiro" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="estagios_form_view" model="ir.ui.view">
+        <field name="name">estagios.form.view</field>
+        <field name="model"></field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="nome_venda"/>
+                <group>
+                    <group name='comercial' string="Comercial">
+                        <field name="id_oportunidade"/>
+                        <field name="canal_angariacao"/>
+                        <field name="cpe"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="comissoes_action">
+        <field name="name">Comissões</field>
+        <field name="res_model">comissoes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="comissoes_tree_view"/>
+    </record>
+   
+
+</odoo>
