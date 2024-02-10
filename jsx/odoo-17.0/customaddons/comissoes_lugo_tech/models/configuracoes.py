@@ -10,11 +10,10 @@ class ComissoesEstagios(models.Model):
     _description="Estágios das comissões"
     _rec_name = "nome_estagio"
     
-    
-    
+
     nome_estagio = fields.Char(string=u"Estágio")
     
     sequencia = fields.Integer(string=u"Sequência")
     
-    in_kanban = fields.Boolean(string="Aparecer no kanban")
+    fold = fields.Boolean(string="Aparecer no kanban")
     

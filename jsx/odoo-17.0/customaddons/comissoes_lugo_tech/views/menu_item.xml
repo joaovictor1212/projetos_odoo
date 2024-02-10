@@ -2,7 +2,6 @@
 <odoo>
     
 
-   
     <menuitem
         id="commissoes_lugo_tech_menu_root"
         name="Autos Lugo.tech"
@@ -15,6 +14,20 @@
         parent="commissoes_lugo_tech_menu_root"
         action="comissoes_lugo_tech.comissoes_action"
         sequence="1"/>
+
+    <menuitem
+        id="configuracao_lugo_tech"
+        name="Configuração"
+        parent="commissoes_lugo_tech_menu_root"
+        sequence="2"/>
+
+    <menuitem 
+        id="comissoes_stages_lugo_tech" 
+        name="Comissões Stages" 
+        parent="configuracao_lugo_tech" 
+        action="comissoes_lugo_tech.estagios_action" 
+        sequence="1"/>
+
 
 
 </odoo>

@@ -22,26 +22,38 @@
         <field name="model">comissoes</field>
         <field name="arch" type="xml">
             <form>
-                <field name="nome_venda"/>
-                <group>
-                    <group name='comercial' string="Comercial">
-                        <field name="id_oportunidade"/>
-                        <field name="canal_angariacao"/>
-                        <field name="cpe"/>
-                        <field name="id_proposta"/>
-                        <field name="segmento"/>
-                        <field name="nipc"/>
-                        <field name="tipo_comissao"/>
-                        <field name="id_cpe"/>
+                <header>
+                    <field name='id_estagio' widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nome_venda"/>
+                        </group>
+                        <group>
+                            <field name="cor" widget="custom_radio_color"/>
+                        </group>
                     </group>
+                    <group>
+                        <group name='comercial' string="Comercial">
+                            <field name="id_oportunidade"/>
+                            <field name="canal_angariacao"/>
+                            <field name="cpe"/>
+                            <field name="id_proposta"/>
+                            <field name="segmento"/>
+                            <field name="nipc"/>
+                            <field name="tipo_comissao"/>
+                            <field name="id_cpe"/>
+                        </group>
 
-                    <group name='comercial' string="Comercial">
-                        <field name="ciclo"/>
-                        <field name="comissao_lugo_tech"/>
-                        <field name="comissao_interno"/>
-                        <field name="comissao_parceiro"/>
+                        <group name='currency' string="Currency">
+                            <field name="ciclo"/>
+                            <field name="comissao_lugo_tech"/>
+                            <field name="comissao_interno"/>
+                            <field name="comissao_parceiro"/>
+                        </group>
                     </group>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>

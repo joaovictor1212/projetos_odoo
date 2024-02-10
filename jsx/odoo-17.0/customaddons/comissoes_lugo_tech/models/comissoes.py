@@ -11,9 +11,9 @@ class Comissoes(models.Model):
     _rec_name = "nome_venda"
     
     
-    nome_venda = fields.Char(string=u'Venda')
+    nome_venda = fields.Char(string=u"Venda")
     
-    id_oportunidade = fields.Char(string="Id da oportunidade")
+    id_oportunidade = fields.Many2one(comodel_name='crm.lead', string="Id da oportunidade")
     
     id_proposta = fields.Char(string="Id da proposta")
     
@@ -36,6 +36,14 @@ class Comissoes(models.Model):
     comissao_interno = fields.Float(string=u"Comissão Interno")
     
     comissao_parceiro = fields.Float(string=u"Comissão Parceiro")
+    
+    id_estagio = fields.Many2one(comodel_name='comissoes.estagios', string="Estagio")
+    
+    cor = fields.Selection(selection=[
+        ('vermelho', 'Vermelho'),
+        ('azul', 'Azul'),
+        ('verde', 'Verde'),
+    ], string='Cor')
     
     
     
