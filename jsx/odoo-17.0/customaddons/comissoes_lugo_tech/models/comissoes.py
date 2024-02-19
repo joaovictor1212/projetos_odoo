@@ -58,7 +58,8 @@ class Comissoes(models.Model):
     
     @api.onchange('id_estagio')
     def change_status_kanban(self):
-        if self.id_estagio
+        if self.id_estagio:
+            pass
             
     
     
