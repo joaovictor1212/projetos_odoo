@@ -3,6 +3,7 @@
     
 
     <!-- COMISSOES -->
+    <!-- <TREE VIEW> -->
     <record id="comissoes_tree_view" model="ir.ui.view">
         <field name="name">comissoes.tree.view</field>
         <field name="model">comissoes</field>
@@ -20,6 +21,7 @@
         </field>
     </record>
 
+    <!-- <FORM VIEW> -->
     <record id="comissoes_form_view" model="ir.ui.view">
         <field name="name">comissoes.form.view</field>
         <field name="model">comissoes</field>
@@ -34,7 +36,7 @@
                             <field name="nome_venda" string=" " placeholder="Venda"/>
                         </group>
                         <group>
-                        <field name="cor" string=" "/>
+                        <field name="cor" widget="state_selection" class="ml-auto" string=" " readonly="1" style="margin-left:90%"/>
                         </group>
                     </group>
                     <group>
@@ -61,7 +63,7 @@
         </field>
     </record>
 
-
+    <!-- <KANBAN VIEW> -->
     <record id="comissoes_kanban_view" model="ir.ui.view">
         <field name="name">comissoes.kanban.view</field>
         <field name="model">comissoes</field>
@@ -79,6 +81,9 @@
                                     <strong><field name="nome_venda" readonly="1" /></strong>
                                 </h5>
                             </div>
+                            <div>
+                                <field name="cor" widget="state_selection" class="ml-auto" style="margin-left:90%"/>
+                            </div>
                         </div>
                     </t>
                 </templates>
@@ -88,7 +93,7 @@
     
     
     
-
+    <!-- <ACTION WINDOW> -->
     <record model="ir.actions.act_window" id="comissoes_action">
         <field name="name">Comissões</field>
         <field name="res_model">comissoes</field>

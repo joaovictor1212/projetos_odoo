@@ -31,9 +31,9 @@
    
     'installable': True,
     'application': False,
-    'assets': {
-        'web.assets_backend': [
-            'comissoes_lugo_tech/static/src/js/assets.xml',
-        ],
-    },
+    # 'assets': {
+    #     'web.assets_backend': [
+    #         'comissoes_lugo_tech/static/src/js/assets.xml',
+    #     ],
+    # },
 }

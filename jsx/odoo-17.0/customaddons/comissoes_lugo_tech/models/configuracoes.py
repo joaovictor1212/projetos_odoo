@@ -9,6 +9,7 @@ class ComissoesEstagios(models.Model):
     _name="comissoes.estagios"
     _description="Estágios das comissões"
     _rec_name = "nome_estagio"
+    _order = "sequencia"
     
 
     nome_estagio = fields.Char(string=u"Estágio")

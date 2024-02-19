@@ -42,14 +42,23 @@ class Comissoes(models.Model):
     id_estagio = fields.Many2one(comodel_name='comissoes.estagios', string="Estagio")
     
     cor = fields.Selection(selection=[
-        ('contestar', 'Vermelho'),
-        ('ok_pagamento', 'Cinza'),
-        ('pago', 'Verde'),
-    ], string='Cor',  widget="comissoes_lugo_tech.field_colorpicker_radiobutton")
+        ('blocked', 'Vermelho'),
+        ('normal', 'Cinza'),
+        ('done', 'Verde'),
+    ], copy=False, default='normal' )
     
     priority = fields.Selection([
         ('0', 'Low'),
         ('1', 'High'),
     ], default='0', index=True, string="Priority", tracking=True)
+    
+    
+    
+    
+    
+    @api.onchange('id_estagio')
+    def change_status_kanban(self):
+        if self.id_estagio
+            
     
     
