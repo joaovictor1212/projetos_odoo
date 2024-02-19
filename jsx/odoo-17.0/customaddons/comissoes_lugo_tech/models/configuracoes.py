@@ -18,6 +18,23 @@ class ComissoesEstagios(models.Model):
     
     fold = fields.Boolean(string="Aparecer no kanban")
     
+    cor = fields.Selection(selection=[
+        ('blocked', 'Vermelho'),
+        ('normal', 'Cinza'),
+        ('done', 'Verde'),
+    ], copy=False, default='normal' )
+    
+    
+    @api.constrains('cor')
+    def validar_cor_nas_comissoes(self):
+        import ipdb;ipdb.set_trace(context=10)
+        estagio_ids = []
+        estagio_ids = self.env['comissoes.estagios'].search([('name','!=',self.nome_estagio),('id','!=',self.id)])
+        
+        if estagio_ids:
+            for estagio_id in estagio_ids:
+                pass
+    
 
 
 class ComissoesConfiguracoes(models.Model):

@@ -27,6 +27,9 @@
                             <field name="sequencia"/>
                             <field name="fold"/>
                         </group>
+                        <group name="cor" string="Validar comissões">
+                            <field name="cor"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

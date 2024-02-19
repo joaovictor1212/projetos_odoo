@@ -58,6 +58,7 @@ class Comissoes(models.Model):
     
     @api.onchange('id_estagio')
     def change_status_kanban(self):
+        import ipdb;ipdb.set_trace(context=10)
         if self.id_estagio:
             pass
             

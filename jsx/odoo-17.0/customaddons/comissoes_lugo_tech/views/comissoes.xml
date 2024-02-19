@@ -82,7 +82,7 @@
                                 </h5>
                             </div>
                             <div>
-                                <field name="cor" widget="state_selection" class="ml-auto" style="margin-left:90%"/>
+                                <field name="cor" widget="state_selection" class="ml-auto" style="margin-left:90%" readonly="1"/>
                             </div>
                         </div>
                     </t>
