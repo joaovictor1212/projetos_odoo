@@ -5,6 +5,8 @@ from requests import request, Response
 
 
 
+
+
 class Comissoes(models.Model):
     _name="comissoes"
     _description="Registros Comissões"
@@ -40,10 +42,14 @@ class Comissoes(models.Model):
     id_estagio = fields.Many2one(comodel_name='comissoes.estagios', string="Estagio")
     
     cor = fields.Selection(selection=[
-        ('vermelho', 'Vermelho'),
-        ('azul', 'Azul'),
-        ('verde', 'Verde'),
-    ], string='Cor')
+        ('contestar', 'Vermelho'),
+        ('ok_pagamento', 'Cinza'),
+        ('pago', 'Verde'),
+    ], string='Cor',  widget="comissoes_lugo_tech.field_colorpicker_radiobutton")
     
+    priority = fields.Selection([
+        ('0', 'Low'),
+        ('1', 'High'),
+    ], default='0', index=True, string="Priority", tracking=True)
     
     

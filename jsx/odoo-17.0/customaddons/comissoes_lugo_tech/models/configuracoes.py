@@ -17,3 +17,19 @@ class ComissoesEstagios(models.Model):
     
     fold = fields.Boolean(string="Aparecer no kanban")
     
+
+
+class ComissoesConfiguracoes(models.Model):
+    _name="comissoes.configuracoes"
+    _description="Configuracao das comissões"
+    _rec_name = "nivel"
+    
+
+    nivel = fields.Char(string="Nível")
+    
+    entidade = fields.Char(string=u"Entidade")
+    
+    tipo = fields.Char(string=u"Tipo")
+    
+    percentagem = fields.Char(string="Percentagem")
+    

@@ -3,7 +3,9 @@
 
     <template id="assets_backend" name="Comissoes-lugo-tech assets backend" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/comissoes_lugo_tech/static/src/js/custom_radio_color.js"></script>
+            <script type="text/javascript" src="/comissoes_lugo_tech/static/src/js/radio_button_widget.js"></script>
+            <script type="text/javascript" src="/comissoes_lugo_tech/static/src/js/custom_radio_button.js"></script>
+            <!-- <link rel="stylesheet" type="text/css" href="/comissoes_lugo_tech/static/src/css/style.css"/> -->
         </xpath>
     </template>
     

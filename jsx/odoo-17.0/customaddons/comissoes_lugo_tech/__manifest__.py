@@ -11,6 +11,7 @@
     'depends': [
         'base', 
         'crm',
+        'web'
     ],
     'data': [
         
@@ -19,9 +20,14 @@
         
         'views/comissoes.xml',
         'views/configuracoes.xml',
+        'views/res_users.xml',
+        'views/crm_lead.xml',
         'views/menu_item.xml',
         
     ],
+    # 'qweb': [
+    #     'static/src/xml/radio_button_widget.xml',
+    # ],
    
     'installable': True,
     'application': False,

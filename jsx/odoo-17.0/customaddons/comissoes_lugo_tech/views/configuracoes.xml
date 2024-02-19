@@ -20,13 +20,15 @@
         <field name="model">comissoes.estagios</field>
         <field name="arch" type="xml">
             <form>
-                <group>
-                    <group name='estagios' string="Estágio">
-                        <field name="nome_estagio"/>
-                        <field name="sequencia"/>
-                        <field name="fold"/>
+                <sheet>
+                    <group>
+                        <group name='estagios' string="Estágio">
+                            <field name="nome_estagio"/>
+                            <field name="sequencia"/>
+                            <field name="fold"/>
+                        </group>
                     </group>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -37,6 +39,46 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="estagios_tree_view"/>
     </record>
-   
+    
+
+     <!-- CONFIGURAÇÕES -->
+     <record id="configuracoes_tree_view" model="ir.ui.view">
+        <field name="name">configuracoes.tree.view</field>
+        <field name="model">comissoes.configuracoes</field>
+        <field name="arch" type="xml">
+            <tree string="Configurações" sample="1" multi_edit="1">
+                <field name="nivel"/>
+                <field name="entidade" />
+                <field name="tipo" />
+                <field name="percentagem" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="configuracoes_form_view" model="ir.ui.view">
+        <field name="name">configuracoes.form.view</field>
+        <field name="model">comissoes.configuracoes</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nivel" placeholder="Nível" string=" "/>
+                        <group name='configuracoes'>
+                            <field name="entidade"/>
+                            <field name="tipo"/>
+                            <field name="percentagem"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="configuracoes_action">
+        <field name="name">Configurações</field>
+        <field name="res_model">comissoes.configuracoes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="configuracoes_tree_view"/>
+    </record>
 
 </odoo>

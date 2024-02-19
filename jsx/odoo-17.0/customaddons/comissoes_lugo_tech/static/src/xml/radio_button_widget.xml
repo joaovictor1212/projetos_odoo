@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <templates id="template_radio_button" xml:space="preserve">
+        <t t-name="radio_button_widget">
+            <odoo with_context="template">
+                <div>
+                    <t t-foreach="widget.options" t-as="option">
+                        <div t-att-class="option[0] === widget.value ? 'selected' : ''">
+                            <input type="radio" t-att-id="'radio_' + option[0]" t-att-name="widget.name" t-att-value="option[0]"/>
+                            <label t-att-for="'radio_' + option[0]">
+                                <span t-esc="option[1]"/>
+                            </label>
+                        </div>
+                    </t>
+                </div>
+            </odoo>
+        </t>
+    </templates>
+</odoo>

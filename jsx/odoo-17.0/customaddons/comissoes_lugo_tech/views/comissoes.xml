@@ -8,6 +8,9 @@
         <field name="model">comissoes</field>
         <field name="arch" type="xml">
             <tree string="Comissões" sample="1" multi_edit="1">
+                <header>
+                    <button name="205" type="action" string="Enviar Comissões"/>
+                </header>
                 <field name="ciclo" />
                 <field name="nome_venda" />
                 <field name="comissao_lugo_tech" />
@@ -28,10 +31,10 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="nome_venda"/>
+                            <field name="nome_venda" string=" " placeholder="Venda"/>
                         </group>
                         <group>
-                            <field name="cor" widget="custom_radio_color"/>
+                        <field name="cor" string=" "/>
                         </group>
                     </group>
                     <group>
@@ -58,12 +61,41 @@
         </field>
     </record>
 
+
+    <record id="comissoes_kanban_view" model="ir.ui.view">
+        <field name="name">comissoes.kanban.view</field>
+        <field name="model">comissoes</field>
+        <field name="arch" type="xml">
+            <kanban group_create="false" default_group_by="id_estagio" class="o_kanban_small_column o_opportunity_kanban" quick_create_view="comissoes_lugo_tech.comissoes_form_view">
+                <field name="id_estagio" />
+                <!-- <field name="client_id" />
+                <field name="responsible_one_id" /> -->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_content d-flex w-100">
+                                <field name="priority" widget="priority_switch" class="me-3"/>
+                                <h5>
+                                    <strong><field name="nome_venda" readonly="1" /></strong>
+                                </h5>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    
+    
+    
+
     <record model="ir.actions.act_window" id="comissoes_action">
         <field name="name">Comissões</field>
         <field name="res_model">comissoes</field>
-        <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="comissoes_tree_view"/>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="comissoes_kanban_view"/>
     </record>
+    
    
 
 </odoo>
