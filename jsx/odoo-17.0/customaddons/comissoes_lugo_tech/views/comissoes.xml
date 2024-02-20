@@ -33,10 +33,12 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="nome_venda" string=" " placeholder="Venda"/>
+                            <h2 class="mt0">
+                                <field name="nome_venda" string=" " placeholder="Título..." style="width: 500px;"/>
+                            </h2>
                         </group>
                         <group>
-                        <field name="cor" widget="state_selection" class="ml-auto" string=" " readonly="1" style="margin-left:90%"/>
+                            <field name="cor" widget="state_selection" class="ml-auto" string=" " readonly="1" style="margin-left:95%" force_save="1"/>
                         </group>
                     </group>
                     <group>
@@ -70,20 +72,21 @@
         <field name="arch" type="xml">
             <kanban group_create="false" default_group_by="id_estagio" class="o_kanban_small_column o_opportunity_kanban" quick_create_view="comissoes_lugo_tech.comissoes_form_view">
                 <field name="id_estagio" />
-                <!-- <field name="client_id" />
-                <field name="responsible_one_id" /> -->
+                
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
                             <div class="oe_kanban_content d-flex w-100">
                                 <field name="priority" widget="priority_switch" class="me-3"/>
                                 <h5>
-                                    <strong><field name="nome_venda" readonly="1" /></strong>
+                                    <strong><field name="nome_venda" /></strong>
                                 </h5>
                             </div>
-                            <div>
-                                <field name="cor" widget="state_selection" class="ml-auto" style="margin-left:90%" readonly="1"/>
+                            <div style="display: flex; flex-wrap: nowrap; justify-content: end; align-items:center">
+                                <field name="cor" widget="state_selection" class="ml-auto" force_save="1"/>
+                                <field name="arquivo" widget="image" class="ml-auto" style="width:25px;height:25px" />
                             </div>
+                            
                         </div>
                     </t>
                 </templates>

@@ -52,15 +52,15 @@ class Comissoes(models.Model):
         ('1', 'High'),
     ], default='0', index=True, string="Priority", tracking=True)
     
-    
-    
+    arquivo = fields.Binary(attachment=True, string="Arquivo")
     
     
     @api.onchange('id_estagio')
     def change_status_kanban(self):
-        import ipdb;ipdb.set_trace(context=10)
-        if self.id_estagio:
-            pass
+        if self.id_estagio.cor == 'blocked':
+            self.cor = 'blocked'
+        elif self.id_estagio.cor == 'done':
+            self.cor = 'done'
             
     
     

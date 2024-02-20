@@ -2,6 +2,7 @@
 from odoo import fields, models, _, api, http
 import json
 from requests import request, Response
+from odoo.exceptions import ValidationError
 
 
 
@@ -27,13 +28,15 @@ class ComissoesEstagios(models.Model):
     
     @api.constrains('cor')
     def validar_cor_nas_comissoes(self):
-        import ipdb;ipdb.set_trace(context=10)
         estagio_ids = []
-        estagio_ids = self.env['comissoes.estagios'].search([('name','!=',self.nome_estagio),('id','!=',self.id)])
-        
+        estagio_ids = self.env['comissoes.estagios'].search([('id','!=',self.id)])
+
         if estagio_ids:
             for estagio_id in estagio_ids:
-                pass
+                if estagio_id.cor == 'blocked' and self.cor == 'blocked':
+                    raise ValidationError(f'O estágio {estagio_id.nome_estagio} já está marcado como Vermelho')
+                elif estagio_id.cor == 'done' and self.cor == 'done':
+                    raise ValidationError(f'O estágio {estagio_id.nome_estagio} já está marcado como Verde')
     
 
 
