@@ -17,7 +17,7 @@ class ComissoesEstagios(models.Model):
     
     sequencia = fields.Integer(string=u"Sequência")
     
-    fold = fields.Boolean(string="Aparecer no kanban")
+    fold = fields.Boolean(string="Esconder no kanban")
     
     cor = fields.Selection(selection=[
         ('blocked', 'Vermelho'),
@@ -43,14 +43,24 @@ class ComissoesEstagios(models.Model):
 class ComissoesConfiguracoes(models.Model):
     _name="comissoes.configuracoes"
     _description="Configuracao das comissões"
-    _rec_name = "nivel"
-    
+    _rec_name = 'nome_composto'
+
+    @api.depends('nivel', 'entidade', 'percentagem')
+    def _compute_nome_composto(self):
+        for record in self:
+            # Aqui você pode personalizar como quer a concatenação
+            record.nome_composto = f'{record.nivel} {record.entidade} {record.percentagem}'
+
+    nome_composto = fields.Char(string='Nome Composto', compute='_compute_nome_composto', store=True)
 
     nivel = fields.Char(string="Nível")
     
     entidade = fields.Char(string=u"Entidade")
     
-    tipo = fields.Char(string=u"Tipo")
+    tipo = fields.Selection([
+        ('without_partner', 'Sem Parceiro'),
+        ('with_partner', 'Com Parceiro')
+    ], string=u"Tipo")
     
     percentagem = fields.Char(string="Percentagem")
     

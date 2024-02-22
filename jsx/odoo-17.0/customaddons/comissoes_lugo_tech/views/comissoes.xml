@@ -65,14 +65,35 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="comissoes_quick_form_view">
+        <field name="name">comissoes.quick.form.view</field>
+        <field name="model">comissoes</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="nome_venda" />
+                    <field name="id_oportunidade"/>
+                    <field name="id_proposta"/>
+                </group>
+                <group>
+                    <field name="ciclo"/>
+                    <field name="comissao_lugo_tech"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
     <!-- <KANBAN VIEW> -->
     <record id="comissoes_kanban_view" model="ir.ui.view">
         <field name="name">comissoes.kanban.view</field>
         <field name="model">comissoes</field>
         <field name="arch" type="xml">
-            <kanban group_create="false" default_group_by="id_estagio" class="o_kanban_small_column o_opportunity_kanban" quick_create_view="comissoes_lugo_tech.comissoes_form_view">
+            <kanban group_create="true" default_group_by="id_estagio" class="o_kanban_small_column o_opportunity_kanban" quick_create_view="comissoes_lugo_tech.comissoes_quick_form_view">
                 <field name="id_estagio" />
-                
+                <field name="nome_venda" />
+                <field name="cor" />
+                <field name="arquivo" />
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
@@ -86,7 +107,6 @@
                                 <field name="cor" widget="state_selection" class="ml-auto" force_save="1"/>
                                 <field name="arquivo" widget="image" class="ml-auto" style="width:25px;height:25px" />
                             </div>
-                            
                         </div>
                     </t>
                 </templates>

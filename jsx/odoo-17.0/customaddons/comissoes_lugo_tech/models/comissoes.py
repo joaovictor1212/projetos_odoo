@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, _, api, http
+from odoo import fields, models, _, api, http, SUPERUSER_ID
 import json
 from requests import request, Response
 
@@ -39,8 +39,18 @@ class Comissoes(models.Model):
     
     comissao_parceiro = fields.Float(string=u"Comissão Parceiro")
     
-    id_estagio = fields.Many2one(comodel_name='comissoes.estagios', string="Estagio")
-    
+    def default_id_estagio(self):
+        filtered_id_estagio = self.env['comissoes.estagios'].search([], order="sequencia", limit=1)
+        return filtered_id_estagio and filtered_id_estagio.id or False
+
+    id_estagio = fields.Many2one(comodel_name='comissoes.estagios', string="Estagio", default=default_id_estagio, group_expand='_read_group_id_estagio_ids', tracking=1)
+
+    @api.model
+    def _read_group_id_estagio_ids(self, id_estagio, domain, order):
+        search_domain = []
+        stage_ids = id_estagio._search(search_domain, order='sequencia', access_rights_uid=SUPERUSER_ID)
+        return id_estagio.browse(stage_ids)
+
     cor = fields.Selection(selection=[
         ('blocked', 'Vermelho'),
         ('normal', 'Cinza'),
@@ -61,6 +71,8 @@ class Comissoes(models.Model):
             self.cor = 'blocked'
         elif self.id_estagio.cor == 'done':
             self.cor = 'done'
+        else:
+            self.cor = 'normal'
             
     
     
