@@ -74,5 +74,12 @@ class Comissoes(models.Model):
         else:
             self.cor = 'normal'
             
+            
+    def write(self, vals):
+        res = super(Comissoes, self).write(vals)
+        if 'id_estagio' in vals:
+            self.change_status_kanban()
+        return res
+            
     
     
